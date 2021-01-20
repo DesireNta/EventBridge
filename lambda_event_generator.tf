@@ -12,14 +12,6 @@ resource "aws_iam_role" "iam_for_lambda" {
       },
       "Effect": "Allow",
       "Sid": "sid1"
-    },
-    {
-        "Action": "sts.AssumeRole",
-        "Principal": {
-          "Service": "events.amazonaws.com"
-        },
-        "Effect": "Allow",
-        "Sid": "EventsFullAccess"
     }
   ]
 }
