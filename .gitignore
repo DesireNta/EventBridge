@@ -1,2 +1,6 @@
 .terraform*
-*.tfstate*
+terraform.tfstate
+terraform.terraform.backup
+*.tfplan
+*.tfstate.*
+*.pem
