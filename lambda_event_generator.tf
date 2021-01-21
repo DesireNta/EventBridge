@@ -11,11 +11,31 @@ resource "aws_iam_role" "iam_for_lambda" {
         "Service": "lambda.amazonaws.com"
       },
       "Effect": "Allow",
-      "Sid": "sid1"
+      "Sid": "Lambda"
     }
   ]
 }
 EOF
+}
+
+resource "aws_iam_role_policy" "grant_access_to_eventbridge" {
+  name = "Full_access_to_eventbridge"
+  role = aws_iam_role.iam_for_lambda.id
+
+  policy = <<-EOF
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Action": [
+          "events:*"
+        ],
+        "Effect": "Allow",
+        "Resource": "*"
+      }
+    ]
+  }
+  EOF
 }
 
 resource "aws_lambda_function" "lambda_event_generator" {
