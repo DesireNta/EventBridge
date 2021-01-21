@@ -25,7 +25,7 @@ resource "aws_cloudwatch_event_rule" "my_custom_event_rule" {
 
 ################### Creating CloudWatch log for my event ############
 resource "aws_cloudwatch_log_group" "event_brige_ntambiye_bus" {
-  name = "event_brige_ntambiye_bus"
+  name = "/aws/events/event_brige_ntambiye_bus" #Il faut préfixer le nom par /aws/events/ pour que ça fonctionne
 
   tags = {
     Environment = "latest"
